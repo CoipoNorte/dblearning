@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-prisma-purple: #7c3aed;
+  --color-prisma-purple-light: #a78bfa;
+  --color-prisma-purple-dark: #5b21b6;
+  --color-prisma-blue: #3b82f6;
+  --color-prisma-cyan: #06b6d4;
+  --color-prisma-green: #10b981;
+  --color-prisma-pink: #ec4899;
+  --color-prisma-orange: #f59e0b;
+  --color-prisma-red: #ef4444;
+  --color-prisma-white: #e2e8f0;
+  --color-prisma-gray: #94a3b8;
+  --color-prisma-gray-dark: #64748b;
+  --color-prisma-muted: #475569;
+  --color-db-bg: #0c0d21;
+  --color-db-surface: #141432;
+  --color-db-card: #1a1b3a;
+  --color-db-border: #2a2b5a;
+  --color-db-hover: #222350;
+  --color-db-input: #0f1029;
+  --color-sql-blue: #3b82f6;
+  --color-pg-blue: #336791;
+  --color-mongo-green: #00ed64;
+  --color-orm-purple: #7c3aed;
+
+  --animate-fade-in: fadeIn 0.35s ease-out;
+  --animate-slide-up: slideUp 0.4s ease-out;
+  --animate-glow: prismaGlow 3s ease-in-out infinite;
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes prismaGlow {
+    0%, 100% { box-shadow: 0 0 15px rgba(124, 58, 237, 0.15); }
+    50% { box-shadow: 0 0 30px rgba(124, 58, 237, 0.3), 0 0 60px rgba(124, 58, 237, 0.1); }
+  }
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--color-db-bg);
+  color: var(--color-prisma-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-db-bg); }
+::-webkit-scrollbar-thumb { background: var(--color-prisma-purple); border-radius: 3px; }
+::selection { background: rgba(124, 58, 237, 0.3); color: white; }
+
+@utility prisma-card {
+  background: var(--color-db-card);
+  border: 1px solid var(--color-db-border);
+  border-radius: 12px;
+}
+
+@utility prisma-glow {
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.15), 0 0 30px rgba(124, 58, 237, 0.05);
+}
+
+@utility prisma-border {
+  border: 1px solid var(--color-db-border);
+}
+
+@utility gradient-text-prisma {
+  background: linear-gradient(135deg, #7c3aed, #3b82f6, #06b6d4);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility font-code {
+  font-family: 'JetBrains Mono', monospace;
+}
